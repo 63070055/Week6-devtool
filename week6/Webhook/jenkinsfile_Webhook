@@ -17,11 +17,19 @@ pipeline {
                 success {
                      echo 'build in progress is success'
                 }
+                failure {
+                     echo 'build in progress is failure'
+                }
             }
         }
         stage('long-build'){
             steps {
                 echo 'long-build in progress'
+            }
+            post {
+                unstable {
+                     echo 'build in progress is unstable'
+                }
             }
         }
         stage('end-build'){
