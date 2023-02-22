@@ -13,6 +13,21 @@ pipeline {
                 echo 'build in progress'
                 sh 'python3  week6/Webhook/main.py'
             }
+            post {
+                success {
+                     echo 'build in progress is success'
+                }
+            }
+        }
+        stage('long-build'){
+            steps {
+                echo 'long-build in progress'
+            }
+        }
+        stage('end-build'){
+            steps {
+                echo 'end-build in progress'
+            }
         }
     }
 }
